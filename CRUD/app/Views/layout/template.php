@@ -522,34 +522,28 @@
     <?php
         $currentUrl = uri_string();
         $menuItems = [
-<<<<<<< HEAD
-            ['url' => 'dashboard', 'icon' => 'bi-speedometer',              'label' => 'Dashboard'],
-            ['url' => 'layanan',   'icon' => 'bi-card-checklist',           'label' => 'Paket Layanan'],
-            ['url' => 'member',    'icon' => 'bi-person-check-fill',        'label' => 'Data Member'],
-            ['url' => 'pesanan',   'icon' => 'bi-file-earmark-text-fill',   'label' => 'Pesanan Laundry'],
-            ['url' => 'cart',      'icon' => 'bi-cart-fill',                'label' => 'Keranjang Belanja'],
+            ['url' => 'dashboard', 'icon' => 'bi-speedometer2',              'label' => 'Dashboard'],
+            ['url' => 'layanan',   'icon' => 'bi-clipboard2-check-fill',     'label' => 'Paket Layanan'],
+            ['url' => 'member',    'icon' => 'bi-person-vcard-fill',        'label' => 'Data Member'],
+            ['url' => 'pesanan',   'icon' => 'bi-receipt-cutoff',           'label' => 'Pesanan Laundry'],
+            ['url' => 'cart',      'icon' => 'bi-basket-fill',              'label' => 'Keranjang Belanja'],
         ];
 
         // Only Admin can see Laporan and Pengaturan
         $otherItems = [];
         if (session()->get('user_role') === 'admin') {
             $otherItems = [
-                ['url' => 'laporan',   'icon' => 'bi-graph-up',        'label' => 'Laporan'],
-                ['url' => 'pengaturan','icon' => 'bi-tools',           'label' => 'Pengaturan'],
+                ['url' => 'laporan',   'icon' => 'bi-pie-chart-fill',   'label' => 'Laporan'],
+                ['url' => 'pengaturan','icon' => 'bi-sliders2',         'label' => 'Pengaturan'],
             ];
         }
-=======
-            ['url' => 'dashboard',      'icon' => 'bi-grid-1x2-fill',  'label' => 'Dashboard'],
-            ['url' => 'jenis-layanan',  'icon' => 'bi-tags-fill',      'label' => 'Jenis Layanan'],
-            ['url' => 'pelanggan',      'icon' => 'bi-people-fill',    'label' => 'Pelanggan'],
-            ['url' => 'transaksi',      'icon' => 'bi-receipt',        'label' => 'Transaksi'],
-            ['url' => 'cart',           'icon' => 'bi-cart3',          'label' => 'Keranjang'],
-            ['url' => 'laporan',        'icon' => 'bi-bar-chart-fill', 'label' => 'Laporan'],
-            ['url' => 'pengaturan',     'icon' => 'bi-gear-fill',      'label' => 'Pengaturan'],
-        ];
         $cartLib   = new \App\Libraries\Cart();
-        $cartCount = $cartLib->totalQty();
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
+        $cartCount = 0;
+        if ($cartLib->contents()) {
+            foreach ($cartLib->contents() as $item) {
+                $cartCount += $item['qty'];
+            }
+        }
     ?>
 
     <aside class="sidebar">
@@ -565,11 +559,7 @@
 
         <nav class="sidebar-menu">
             <div class="menu-label">Menu Utama</div>
-<<<<<<< HEAD
             <?php foreach ($menuItems as $item): ?>
-=======
-            <?php foreach (array_slice($menuItems, 0, 5) as $item): ?>
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
                 <a href="<?= base_url('/' . $item['url']) ?>"
                    class="nav-link <?= (strpos($currentUrl, $item['url']) === 0) ? 'active' : '' ?>"
                    style="position: relative;">
@@ -585,7 +575,6 @@
                 </a>
             <?php endforeach; ?>
 
-<<<<<<< HEAD
             <?php if (!empty($otherItems)) : ?>
                 <div class="menu-label mt-4">Lainnya</div>
                 <?php foreach ($otherItems as $item): ?>
@@ -596,16 +585,6 @@
                     </a>
                 <?php endforeach; ?>
             <?php endif; ?>
-=======
-            <div class="menu-label mt-4">Lainnya</div>
-            <?php foreach (array_slice($menuItems, 5) as $item): ?>
-                <a href="<?= base_url('/' . $item['url']) ?>"
-                   class="nav-link <?= (strpos($currentUrl, $item['url']) === 0) ? 'active' : '' ?>">
-                    <i class="bi <?= $item['icon'] ?>"></i>
-                    <?= $item['label'] ?>
-                </a>
-            <?php endforeach; ?>
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
         </nav>
 
         <div class="sidebar-footer">

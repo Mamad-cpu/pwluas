@@ -16,7 +16,6 @@ class Auth extends BaseController
     }
 
     public function authenticate()
-<<<<<<< HEAD
     {
         $validation = \Config\Services::validation();
 
@@ -42,38 +41,6 @@ class Auth extends BaseController
 
         $email    = $this->request->getPost('email');
         $password = $this->request->getPost('password');
-=======
-    {        
-        $rules = [
-            'email'    => [
-                'label' => 'Email',
-                'rules' => 'required|valid_email|max_length[100]',
-                'errors' => [
-                    'required'    => 'Email wajib diisi.',
-                    'valid_email' => 'Format email tidak valid.',
-                    'max_length'  => 'Email terlalu panjang (maks. 100 karakter).',
-                ],
-            ],
-            'password' => [
-                'label' => 'Password',
-                'rules' => 'required|min_length[6]',
-                'errors' => [
-                    'required'   => 'Password wajib diisi.',
-                    'min_length' => 'Password minimal 6 karakter.',
-                ],
-            ],
-        ];
-
-        if (! $this->validate($rules)) {
-            return redirect()
-                ->to('/auth/login')
-                ->withInput()
-                ->with('validation', $this->validator);
-        }
-
-        $email     = $this->request->getPost('email');
-        $password  = $this->request->getPost('password');
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
 
         $userModel = new UserModel();
         $user      = $userModel->where('email', $email)->first();

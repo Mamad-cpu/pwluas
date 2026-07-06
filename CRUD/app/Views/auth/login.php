@@ -251,55 +251,20 @@
                 </div>
             <?php endif; ?>
 
-            <?php
-                $validation = session()->getFlashdata('validation');
-            ?>
-
             <form action="<?= base_url('/auth/authenticate') ?>" method="POST">
                 <?= csrf_field() ?>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-<<<<<<< HEAD
                     <input type="email" class="form-control" id="email" name="email"
                            value="<?= old('email') ?>"
                            placeholder="nama@email.com" required autofocus>
-=======
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                        <input type="email"
-                               class="form-control <?= ($validation && $validation->hasError('email')) ? 'is-invalid' : '' ?>"
-                               id="email" name="email"
-                               value="<?= old('email') ?>"
-                               placeholder="nama@email.com" autofocus>
-                    </div>
-                    <?php if ($validation && $validation->hasError('email')) : ?>
-                        <div class="text-danger mt-1" style="font-size:0.8rem;">
-                            <i class="bi bi-exclamation-circle me-1"></i><?= $validation->getError('email') ?>
-                        </div>
-                    <?php endif; ?>
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
                 </div>
 
                 <div class="mb-4">
                     <label for="password" class="form-label">Password</label>
-<<<<<<< HEAD
                     <input type="password" class="form-control" id="password" name="password"
                            placeholder="Masukkan password" required>
-=======
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                        <input type="password"
-                               class="form-control <?= ($validation && $validation->hasError('password')) ? 'is-invalid' : '' ?>"
-                               id="password" name="password"
-                               placeholder="Masukkan password">
-                    </div>
-                    <?php if ($validation && $validation->hasError('password')) : ?>
-                        <div class="text-danger mt-1" style="font-size:0.8rem;">
-                            <i class="bi bi-exclamation-circle me-1"></i><?= $validation->getError('password') ?>
-                        </div>
-                    <?php endif; ?>
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
                 </div>
 
                 <button type="submit" class="btn btn-login">
