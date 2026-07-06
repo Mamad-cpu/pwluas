@@ -9,8 +9,8 @@ class MainSeeder extends Seeder
     public function run()
     {
         $this->call('UsersSeeder');
-        $this->call('PelangganSeeder');
-        $this->call('JenisLayananSeeder');
+        $this->call('MemberSeeder');
+        $this->call('LayananSeeder');
         $this->call('PengaturanSeeder');
     }
 }

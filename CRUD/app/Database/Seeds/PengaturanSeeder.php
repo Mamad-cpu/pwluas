@@ -17,6 +17,7 @@ class PengaturanSeeder extends Seeder
             ['key' => 'deskripsi',    'value' => 'Layanan laundry profesional dengan kualitas terbaik dan aroma keharuman tahan lama.'],
         ];
 
+        $this->db->table('pengaturan')->truncate();
         $this->db->table('pengaturan')->insertBatch($data);
     }
 }

@@ -38,7 +38,7 @@ class Layanan extends BaseController
     {
         $layanan = $this->layananModel->orderBy('nama_paket', 'ASC')->findAll();
 
-        $html = view('layanan/download_pdf', [
+        $html = view('layanan/pdf', [
             'title'   => 'Daftar Layanan Laundry - AromaFresh',
             'layanan' => $layanan
         ]);
