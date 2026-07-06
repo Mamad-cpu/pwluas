@@ -16,7 +16,6 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     
     $routes->get('dashboard', 'Dashboard::index');
     
-<<<<<<< HEAD
     $routes->group('layanan', static function ($routes) {
         $routes->get('/', 'Layanan::index');
         $routes->get('pdf', 'Layanan::pdf');
@@ -25,16 +24,6 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
         $routes->get('edit/(:num)', 'Layanan::edit/$1', ['filter' => 'admin']);
         $routes->post('update/(:num)', 'Layanan::update/$1', ['filter' => 'admin']);
         $routes->get('delete/(:num)', 'Layanan::delete/$1', ['filter' => 'admin']);
-=======
-    $routes->group('jenis-layanan', static function ($routes) {
-        $routes->get('/', 'JenisLayanan::index');
-        $routes->get('create', 'JenisLayanan::create');
-        $routes->post('store', 'JenisLayanan::store');
-        $routes->get('edit/(:num)', 'JenisLayanan::edit/$1');
-        $routes->post('update/(:num)', 'JenisLayanan::update/$1');
-        $routes->get('delete/(:num)', 'JenisLayanan::delete/$1');
-        $routes->get('export-pdf', 'JenisLayanan::exportPdf');
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
     });
 
     $routes->group('member', static function ($routes) {
@@ -57,25 +46,12 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     });
 
     $routes->group('cart', static function ($routes) {
-<<<<<<< HEAD
         $routes->get('/', 'CartController::index');
         $routes->get('add/(:num)', 'CartController::add/$1');
         $routes->post('update', 'CartController::update');
         $routes->get('remove/(:num)', 'CartController::remove/$1');
         $routes->get('clear', 'CartController::clear');
     });
-=======
-        $routes->get('/', 'CartController::index');           
-        $routes->post('add', 'CartController::add');          
-        $routes->post('update', 'CartController::update');    
-        $routes->post('remove', 'CartController::remove');    
-        $routes->post('destroy', 'CartController::destroy');  
-        $routes->get('total', 'CartController::total');       
-        $routes->post('checkout', 'CartController::checkout');
-    });
-
-    $routes->get('laporan', 'Laporan::index');
->>>>>>> 8c16e9af2020c66a67919ef6e4717465301975bf
 
     $routes->get('laporan', 'Laporan::index', ['filter' => 'admin']);
 
